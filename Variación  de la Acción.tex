@@ -1,0 +1,72 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\begin{document}
+$$S = \int d^4x \sqrt{-g}(-R +2(\nabla \phi)^2 + e^{-2 \phi} F^2)$$
+
+Usando Euler Lagrange, para la densidad lagrangiana:
+$$ \hat{\mathcal{L}} = -R + 2(\nabla \phi)^2 + e^{-2 \phi} F^2 = -R + 2g^{ab}\nabla_a\phi\nabla_b\phi + e^{-2 \phi} F^2 $$
+Entonces:
+$$0 = \frac{\partial \hat{\mathcal{L}}}{\partial \phi} - \nabla_\mu (\frac{\partial \hat{\mathcal{L}}}{\partial (\nabla_\mu \phi)}) $$
+$$ = -2e^{-2\phi}F^2 - \nabla_\mu(\frac{\partial }{\partial (\nabla_\mu \phi)}(2g^{ab}\nabla_a\phi \nabla_b\phi))$$
+$$= -2e^{-2\phi} F^2 - \nabla_\mu(2g^{ab}\delta_{a\mu}\nabla_b\phi + 2g^{ab}\nabla_a\phi \delta_{\mu b}) = -2e^{-2\phi}F^2 - \nabla_\mu(2g^{\mu b}\nabla_b\phi + 2g^{a\mu}\nabla_a\phi)$$
+$$\Rightarrow e^{-2\phi}F^2 + 2\nabla_mu (g^{a\mu}\nabla_a \phi) = 0$$
+$$\Rightarrow \nabla_{\mu} \nabla^{\mu} \phi + \frac{1}{2}e^{-2\phi}F^2  = 0$$
+$$\Rightarrow  \nabla^2 \phi + \frac{1}{2}e^{-2\phi}F^2 = 0$$
+Como la única contribución de $S$ con $A_{\mu}$es la parte:
+$$S_3 = \int d^4x \sqrt{-g}e^{-2 \phi}F^2$$
+Y como $F^2 = F_{ab}F^{ab}= F_{ab}g^{ac}g^{bd}F_{cd} = g^{ac}g^{bd}(\partial_a A_b -\partial_b A_a)(\partial_c A_d -\partial_d A_c) = g^{ac}g^{bd}(\nabla_a A_b -\nabla_b A_a)(\nabla_c A_d -\nabla_d A_c)$ porque $ \partial_a A_b -\partial_b A_a = (\partial_a A_b -\Gamma^{\lambda}_{ab}A_\lambda) -(\partial_b A_a - \Gamma^\lambda_{ab}A_{\lambda}) = \nabla_a A_b -\nabla_b A_a$
+Entonces:
+$$\hat{\mathcal{L}}_1 = e^{-2 \phi} g^{ac}g^{bd}(\partial_a A_b -\partial_b A_a)(\partial_c A_d -\partial_d A_c) = e^{-2 \phi} g^{ac}g^{bd}(\nabla_a A_b -\nabla_b A_a)(\nabla_c A_d -\nabla_d A_c)$$
+Y la ecuación de Euler-Lagrange
+$$0 = \frac{\partial \hat{\mathcal{L}}_1}{\partial A_e} - \nabla_\mu (\frac{\partial \hat{\mathcal{L}}_1}{\partial (\nabla_\mu A_e)}) = $$
+$$0 = \nabla_\mu (\frac{\partial \hat{\mathcal{L}}_1}{\partial (\nabla_\mu A_e)}) = \nabla_\mu (e^{-2\phi}g^{ac}g^{bd}(\delta^\mu_{a}\delta^e_{b}-\delta^\mu_{b}\delta^e_{a})(\nabla_c A_d - \nabla_d A_c) +e^{-2\phi}g^{ac}g^{bd}(\nabla_a A_b -\nabla_b A_a)(\delta^\mu_{c}\delta^e_{d}-\delta^\mu_{d}\delta^e_{c}))$$
+$$= \nabla_\mu (e^{-2\phi}(g^{\mu c}g^{ed}-g^{ec}g^{\mu d})(\nabla_c A_d - \nabla_d A_c) +e^{-2\phi}(g^{a\mu}g^{be} - g^{ae}g^{b\mu})(\nabla_a A_b -\nabla_b A_a))$$
+$$= \nabla_\mu (e^{-2\phi}(g^{\mu c}g^{ed}-g^{ec}g^{\mu d})(\delta_c A_d - \delta_d A_c) +e^{-2\phi}(g^{a\mu}g^{be} - g^{ae}g^{b\mu})(\delta_a A_b -\delta_b A_a))$$
+$$= \nabla_\mu (e^{-2\phi}(g^{\mu c}g^{ed}-g^{ec}g^{\mu d})F_{cd} +e^{-2\phi}(g^{a\mu}g^{be} - g^{ae}g^{b\mu})F_{ab})$$
+$$ = \nabla_\mu (e^{-2\phi}(g^{\mu a}g^{eb}-g^{ea}g^{\mu b})F_{ab} +e^{-2\phi}(g^{a\mu}g^{be} - g^{ae}g^{b\mu})F_{ab}) = 2\nabla_\mu (e^{-2\phi}(g^{\mu a}g^{eb}-g^{ea}g^{\mu b})F_{ab})$$
+$$\Rightarrow 0 = \nabla_\mu (e^{-2\phi}(g^{\mu a}g^{eb}-g^{ea}g^{\mu b})F_{ab}) = \nabla_\mu (e^{-2\phi}(F^{\mu e} - F^{e \mu})= 2\nabla_\mu (e^{-2\phi}F^{\mu e})$$
+$$\Rightarrow\nabla_\mu (e^{-2\phi}F^{\mu e}) = 0$$
+Para hacer la variación respecto a la métrica, separamos la acción en 3 partes:
+$$S_1 = \int d^4x \sqrt{-g}\:(-R)$$
+$$S_2 = \int d^4x \sqrt{-g}\:2(\nabla \phi)^2$$
+$$S_3 = \int d^4x \sqrt{-g}\:e^{-2 \phi} F^2$$
+
+La variación del primer termino es la variación de la acción de Einstein-Hilbert que da:
+$$\frac{\delta S_1}{\delta g^{\mu\nu}} = -\sqrt{-g}(R_{\mu\nu} - \frac{1}{2}Rg_{\mu\nu})=\sqrt{-g}(\frac{1}{2}Rg_{\mu\nu}- R_{\mu\nu}) $$
+
+Además $\delta\sqrt{-g} = -\frac{1}{2} \sqrt{-g} g_{\mu\nu}\delta g^{\mu\nu}$, entonces:
+$$\delta S_2 = \int d^4 x \frac{\delta S_2}{\delta g^{\mu \nu}}\delta g^{\mu \nu}$$
+$$\delta S_2 = \int d^4 x (\delta(\sqrt{-g}2(\nabla \phi)^2)= \int d^4 x \delta(\sqrt{-g})2(\nabla \phi)^2 + \sqrt{-g}2\delta((\nabla \phi)^2))$$
+$$= \int d^4 x (-\frac{1}{2} \sqrt{-g} g_{\mu\nu}\delta g^{\mu\nu}2(\nabla \phi)^2 + \sqrt{-g}2\nabla_\mu \phi \nabla_\nu \phi \delta g^{\mu \nu})$$
+$$= \int d^4 x \sqrt{-g}(-g_{\mu\nu}\delta g^{\mu\nu}(\nabla \phi)^2 + 2\nabla_\mu \phi \nabla_\nu \phi) \delta g^{\mu \nu}$$
+Entonces:
+$$\frac{\delta S_2}{\delta g^{\mu \nu}}= \sqrt{-g}(-g_{\mu\nu}\delta g^{\mu\nu}(\nabla \phi)^2 + 2\nabla_\mu \phi \nabla_\nu \phi) $$
+
+Finalmente $\delta S_3$
+
+$$\delta S_3 = \int d^4x \delta(\sqrt{-g}e^{-2 \phi} F^2) = \int d^4x F_{ab}F_{cd}e^{-2 \phi}\delta(\sqrt{-g} g^{ac}g^{bd})$$
+$$= \int d^4x F_{ab}F_{cd}e^{-2 \phi}(\delta\sqrt{-g} g^{ac}g^{bd} + \sqrt{-g} \delta g^{ac}g^{bd} + \sqrt{-g} g^{ac}\delta g^{bd}$$
+$$= \int d^4x F_{ab}F_{cd}e^{-2 \phi}(\delta\sqrt{-g} g^{ac}g^{bd} + \sqrt{-g} \delta g^{ac}g^{bd} + \sqrt{-g} g^{ac}\delta g^{bd}$$
+$$= \int d^4x e^{-2 \phi}\sqrt{-g}F_{ab}F_{cd}( g^{ac}g^{bd} + \sqrt{-g} \delta g^{ac}g^{bd} + \sqrt{-g} g^{ac}\delta g^{bd}$$
+$$= \int d^4x e^{-2 \phi}\sqrt{-g}\frac{-F^{cd}F_{cd}}{2} g_{\mu \nu} \delta g^{\mu \nu} + F_{\mu b} F_{\nu d}e^{-2 \phi}\sqrt{-g} g^{bd} \delta g^{\mu \nu} + F_{\mu b} F_{\nu d}e^{-2 \phi}\sqrt{-g} g^{\mu \nu} \delta g^{bd} $$
+$$\int d^4 x(2 F_{\mu b} F_{\nu d}e^{-2 \phi}\sqrt{-g} g^{b d} - \frac{1}{2}  F^2 e^{-2 \phi} \sqrt{-g} g_{\mu \nu}) \delta g^{\mu \nu}$$
+$$\Rightarrow \frac{\delta S_3}{\delta g^{\mu \nu}} = \sqrt{-g}e^{-2 \phi}(2 F_{\mu b} F_{\nu d} g^{b d} - \frac{1}{2}  F^2 g_{\mu \nu})$$
+Finalmente sumando las acciones
+$$\Rightarrow 0 = \frac{\delta S}{\delta g^{\mu \nu}}=\frac{\delta S_1}{\delta g^{\mu \nu}} +\frac{\delta S_2}{\delta g^{\mu \nu}} +\frac{\delta S_3}{\delta g^{\mu \nu}}$$
+$$ = \sqrt{-g}(\frac{1}{2}Rg_{\mu\nu}- R_{\mu\nu} -g_{\mu\nu}(\nabla \phi)^2 + 2\nabla_\mu \phi \nabla_\nu \phi + 2e^{-2 \phi} F_{\mu b} F_{\nu d} g^{b d} - \frac{1}{2}  g_{\mu \nu}e^{-2 \phi}F^2)$$
+
+$$\Rightarrow R_{\mu \nu} = 2\nabla_\mu \phi \nabla_\nu \phi+ 2e^{-2 \phi} F_{\mu \rho} F^{\rho}_{\nu} - \frac{1}{2}  g_{\mu \nu}e^{-2 \phi}F^2 + \frac{1}{2}Rg_{\mu\nu} - g_{\mu\nu} (\nabla \phi)^2$$
+
+Si contraemos tenemos:
+$$R = g^{\mu \nu}R_{\mu \nu} = g^{\mu \nu}(2\nabla_\mu \phi \nabla_\nu \phi+ 2e^{-2 \phi} F_{\mu \rho} F^{\rho}_{\nu} - \frac{1}{2}  g_{\mu \nu}e^{-2 \phi}F^2 + \frac{1}{2}Rg_{\mu\nu} - g_{\mu\nu} (\nabla \phi)^2)$$
+$$=2(\nabla \phi)^2 + 2e^{-2 \phi} F_{\mu \rho} F^{\rho \mu}-2e^{-2 \phi}F^2 + 2R - 4(\nabla \phi)^2$$
+$$=-2(\nabla \phi)^2 + 2e^{-2 \phi}  F^2 - 2e^{-2 \phi}F^2 + 2R$$
+$$=-2(\nabla \phi)^2 + 2R$$
+$$\Rightarrow R = 2(\nabla \phi)^2$$
+Entonces sustituyendo:
+$$\Rightarrow R_{\mu \nu} = 2\nabla_\mu \phi \nabla_\nu \phi+ 2e^{-2 \phi} F_{\mu \rho} F^{\rho}_{\nu} - \frac{1}{2}  g_{\mu \nu}e^{-2 \phi}F^2 + (\frac{1}{2}R - (\nabla \phi)^2)g_{\mu\nu}$$
+$$\Rightarrow R_{\mu \nu} = 2\nabla_\mu \phi \nabla_\nu \phi+ 2e^{-2 \phi} F_{\mu \rho} F^{\rho}_{\nu} - \frac{1}{2}  g_{\mu \nu}e^{-2 \phi}F^2$$
+\end{document}
